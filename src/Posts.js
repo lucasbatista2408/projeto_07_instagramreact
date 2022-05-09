@@ -16,13 +16,17 @@ export default function Posts(){
   )
 }
 
-// function Post(props){
+function Post(props){
 
-// const [icon, setIcon] = React.useState("")
+const [icon, setIcon] = React.useState(<ion-icon onClick={like} name="heart-outline"></ion-icon>)
 
-//    function like(){
-//     setIcon("heart")
-//   }
+   function like(){
+    setIcon(<ion-icon  style={{color: "red"}} onClick={liken} name="heart"></ion-icon>)
+  }
+
+  function liken(){
+    setIcon(<ion-icon onClick={like} name="heart-outline"></ion-icon>)
+  }
 
   return(
     <div class="post">
@@ -36,14 +40,14 @@ export default function Posts(){
       </div>
     </div>
 
-    <div class="conteudo">
+    <div onClick={like}class="conteudo">
       <img src={props.objpost.imgcont} alt="" />
     </div>
 
     <div class="fundo">
       <div class="acoes">
         <div>
-        <ion-icon name="heart-outline"></ion-icon>
+          {icon}
           <ion-icon name="chatbubble-outline"></ion-icon>
           <ion-icon name="paper-plane-outline"></ion-icon>
         </div>
